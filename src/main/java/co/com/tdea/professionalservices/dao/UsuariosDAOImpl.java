@@ -14,7 +14,7 @@ import java.util.List;
 public class UsuariosDAOImpl implements UsuariosDAO  {
 
   private static final String INSERT ="INSERT INTO usuarios (cddocumento,cdtipo_documento,dsprimer_nombre,dssegundo_nombre,dsprimer_apellido,dssegundo_apellido,dsemail,nmcelular,fenacimiento,dsfacebook,dsinstagram,dswhatsapp,dsyoutube,dsotra_redsocial,dsusername,dspassword,feultimo_ingreso, cdusuario, cdestado, dtfechacreacion) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ? ,?, now())";
-    private static final String UPDATE ="UPDATE usuarios set cdtipo_documento = ? ,dsprimer_nombre = ? ,dssegundo_nombre = ? ,dsprimer_apellido = ? ,dssegundo_apellido = ? ,dsdemail = ? ,nmcelular = ? ,fenacimiento = ? ,dsfacebook = ? ,dsinstagram = ? ,dswhatsapp = ? ,dsyoutube = ? ,dsotra_redsocial = ? ,dsusername = ? ,dspassword = ? ,feultimo_ingreso = ?  , dtfechamodificacion = now() WHERE cddocumento = ? ";
+    private static final String UPDATE ="UPDATE usuarios set cdtipo_documento = ? ,dsprimer_nombre = ? ,dssegundo_nombre = ? ,dsprimer_apellido = ? ,dssegundo_apellido = ? ,dsemail = ? ,nmcelular = ? ,fenacimiento = ? ,dsfacebook = ? ,dsinstagram = ? ,dswhatsapp = ? ,dsyoutube = ? ,dsotra_redsocial = ? ,dsusername = ? ,dspassword = ? ,feultimo_ingreso = ?  , dtfechamodificacion = now() WHERE cddocumento = ? ";
     private static final String SELECT ="SELECT * FROM usuarios ";
     private static final String SELECTBYID = SELECT + " WHERE cddocumento = ?";
     private static final String SELECTBYEMAIL = SELECT + " WHERE dsemail = ?";
