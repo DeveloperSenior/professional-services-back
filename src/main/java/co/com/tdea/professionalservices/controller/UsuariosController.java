@@ -44,11 +44,13 @@ public class UsuariosController extends ResponseBase {
     @PostMapping("/usuarios")
     public ResponseEntity<ResponseMessage<Usuarios>> createUsuarios(@Valid @RequestBody Usuarios usuarios) throws ApplicationCustomException {
         log.debug("REST request to save Usuarios : {}", usuarios);
+        Usuarios result;
         Usuarios usuariosFind = usuariosService.findOne(usuarios.getCddocumento());
         if(usuariosFind != null) {
-        	throw new ApplicationCustomException(MessagesConstants.ENTITY_ALREADY_EXISTS_CODE, String.format(MessagesConstants.ENTITY_ALREADY_EXISTS, ENTITY_NAME));
+            result = usuariosService.update(usuarios);
+        }else {
+            result = usuariosService.save(usuarios);
         }
-        Usuarios result = usuariosService.save(usuarios);
         return ResponseEntity.ok( new ResponseMessage<>(0, null, result) );
     }
 
