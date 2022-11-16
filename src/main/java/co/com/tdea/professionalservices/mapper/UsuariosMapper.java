@@ -2,9 +2,11 @@ package co.com.tdea.professionalservices.mapper;
 
 import co.com.tdea.professionalservices.dto.Usuarios;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.util.ObjectUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 
 public class UsuariosMapper implements RowMapper<Usuarios> {
 
@@ -27,7 +29,8 @@ public class UsuariosMapper implements RowMapper<Usuarios> {
 		entity.setDsotra_redsocial( resultSet.getString("dsotra_redsocial"));
 		entity.setDsusername( resultSet.getString("dsusername"));
 		entity.setDspassword( resultSet.getString("dspassword"));
-		entity.setFeultimo_ingreso( resultSet.getTimestamp("feultimo_ingreso").toLocalDateTime());
+		Timestamp lastLogin = resultSet.getTimestamp("feultimo_ingreso");
+		entity.setFeultimo_ingreso(!ObjectUtils.isEmpty(lastLogin)? lastLogin.toLocalDateTime():null);
 
         entity.setDataFromRs(resultSet);
         return entity;
