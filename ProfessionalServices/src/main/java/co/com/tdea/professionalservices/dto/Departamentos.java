@@ -1,0 +1,3 @@
+package co.com.tdea.professionalservices.dto; import javax.validation.constraints.*;import co.com.tdea.professionalservices.util.Auditoria;import java.io.Serializable;import lombok.Data;import lombok.EqualsAndHashCode;import lombok.ToString;@EqualsAndHashCode(callSuper = true)@Data
+@ToString
+public class Departamentos extends Auditoria implements Serializable {	private static final long serialVersionUID = 1L;	private long id;	@Size(max = 15,message = co.com.tdea.professionalservices.util.MessagesConstants.MAX_VALIDATION_FIELD+" (15)")	private String cddepartamento;	@Size(max = 30,message = co.com.tdea.professionalservices.util.MessagesConstants.MAX_VALIDATION_FIELD+" (30)")	private String dsdepartamento;	private long id_pais;} 
